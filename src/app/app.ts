@@ -1,12 +1,41 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Home } from './components/home/home';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [FormsModule, Home],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
-  protected readonly title = signal('course-project');
+  title: string = 'Task Board Manager';
+
+  imgSrc: string = 'images/logo.png';
+  imgSrc2: string = 'images/logo-2.webp';
+
+  isFirstImage: boolean = true;
+
+  isVisible: boolean = true;
+
+  count: number = 0;
+
+  changeTitle() {
+    this.title = 'Angular Task Board';
+  }
+
+  changeImage() {
+    this.imgSrc = this.imgSrc2;
+  }
+
+  toggleImage() {
+    this.isFirstImage = !this.isFirstImage;
+  }
+
+  increase() {
+    this.count++;
+  }
+  decrease() {
+    this.count--;
+  }
 }

@@ -1,0 +1,41 @@
+<div class="container">
+  @if (tasksCount > 0) {
+    <p>You have {{ tasksCount }} Tasks</p>
+  } @else {
+    <p>No tasks yet</p>
+  }
+
+  @if (tasksCount === 0) {
+    <p>No tasks</p>
+  } @else if (tasksCount < 5) {
+    <p>Few Tasks</p>
+  } @else {
+    <p>Many Tasks</p>
+  }
+
+  <h4>Tasks List</h4>
+
+  @for (task of tasks; track task.id; let i = $index) {
+    <div class="card text-start">
+      <img class="card-img-top" [src]="task.image" alt="Title" />
+      <div class="card-body">
+        <span>Task No. {{ i + 1 }}</span>
+        <h4 class="card-title">{{ task.name }}</h4>
+
+        @switch (task.status) {
+          @case ('done') {
+            <p>Status : {{ task.status }}</p>
+            <p>You are a gooooooood employee</p>
+          }
+          @case ('pending') {
+            <p>Status : {{ task.status }}</p>
+            <p>You are an employee</p>
+          }
+          @default {
+            <p>Unknown Task</p>
+          }
+        }
+      </div>
+    </div>
+  }
+</div>
