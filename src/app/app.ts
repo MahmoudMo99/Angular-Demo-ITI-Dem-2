@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Home } from './components/home/home';
+import { TasksList } from "./pages/tasks-list/tasks-list";
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, Home],
+  imports: [FormsModule, Home, TasksList],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

@@ -1,57 +1,59 @@
-<div class="container">
+<!-- <div class="container">
   <app-home></app-home>
-  <hr />
+  <hr /> -->
 
-  <!-- Interpolation ts -> DOM -->
-  <h1>
+<!-- Interpolation ts -> DOM -->
+<!-- <h1>
     Welcome to : <span> {{ title }} </span>
-  </h1>
-  <!-- Property Binding ts-> DOM -->
-  Title :
-  <input type="text" class="form-control" [value]="title" />
+  </h1> -->
+<!-- Property Binding ts-> DOM -->
+<!-- Title : -->
+<!-- <input type="text" class="form-control" [value]="title" /> -->
 
-  <img [src]="imgSrc" alt="" class="my-5" />
+<!-- <img [src]="imgSrc" alt="" class="my-5" /> -->
 
-  <!-- Event Binding DOM -> ts -->
-  <div>
+<!-- Event Binding DOM -> ts -->
+<!-- <div>
     <button class="btn btn-success" (click)="changeTitle()">Change Title</button>
 
     <button class="btn btn-primary ms-3" (click)="changeImage()">Change Image</button>
-  </div>
+  </div> -->
 
-  <!-- Two-way Binding -->
-
+<!-- Two-way Binding -->
+<!-- 
   <div>
     <input class="form-control my-3" type="text" [(ngModel)]="title" />
-  </div>
-  <h1>
+  </div> -->
+<!-- <h1>
     Welcome to : <span> {{ title }} </span>
-  </h1>
+  </h1> -->
 
-  <div class="my-5">
+<!-- <div class="my-5">
     <img [src]="isFirstImage ? imgSrc : imgSrc2" />
     <button class="btn btn-danger" (click)="toggleImage()">Toggle Image</button>
-  </div>
+  </div> -->
 
-  Visible : <input type="checkbox" [(ngModel)]="isVisible" />
+<!-- Visible : <input type="checkbox" [(ngModel)]="isVisible" /> -->
 
-  <!-- if - for - switch -->
+<!-- if - for - switch -->
 
-  @if (isVisible) {
+<!-- @if (isVisible) {
     <p>Hello Angular - Day 2</p>
-  }
+  } -->
 
-  <div class="my-5">
+<!-- <div class="my-5">
     <button class="btn btn-warning" (click)="increase()">+</button>
     <span class="mx-5">{{ count }}</span>
     <button class="btn btn-danger" (click)="decrease()">-</button>
-  </div>
+  </div> -->
 
-  @if (count > 0) {
+<!-- @if (count > 0) {
     <p>The value is Positive and Value is : {{ count }}</p>
   } @else if (count == 0) {
     <p>The value is Zeroooooo</p>
   } @else {
     <p>The value is Negative and Value is : {{ count }}</p>
-  }
-</div>
+  } -->
+<!-- </div> -->
+
+<app-tasks-list> </app-tasks-list>
