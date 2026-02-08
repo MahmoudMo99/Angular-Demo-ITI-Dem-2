@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TruncatePipe } from '../pipes/truncate-pipe';
-import { FormsModule } from '@angular/forms';
 import { Highlight } from '../../directives/highlight';
 
 type TaskStatus = 'todo' | 'doing' | 'done';
@@ -16,7 +15,7 @@ interface ITaskList {
 
 @Component({
   selector: 'app-task-item',
-  imports: [FormsModule, CommonModule, Highlight, TruncatePipe],
+  imports: [CommonModule, Highlight, TruncatePipe],
   templateUrl: './task-item.html',
   styleUrl: './task-item.css',
 })
