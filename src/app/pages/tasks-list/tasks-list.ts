@@ -1,5 +1,9 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Highlight } from '../../directives/highlight';
+import { TruncatePipe } from '../../components/pipes/truncate-pipe';
+import { TaskItem } from '../../components/task-item/task-item';
 
 type TaskStatus = 'todo' | 'doing' | 'done';
 type TaskPriority = 'low' | 'medium' | 'high';
@@ -13,7 +17,7 @@ interface ITaskList {
 
 @Component({
   selector: 'app-tasks-list',
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule, Highlight, TruncatePipe, TaskItem],
   templateUrl: './tasks-list.html',
   styleUrl: './tasks-list.css',
 })
@@ -22,7 +26,12 @@ export class TasksList {
   placeholder = 'Enter a new task title...';
   pageTitle: string = 'Tasks List App';
 
-  selectedStatus: string = 'all';
+  selectedStatus: TaskStatus | 'all' = 'all';
+
+  isDarkHeader: boolean = false;
+
+  // currentDate = new Date();
+  // price: number = 400;
 
   tasks: ITaskList[] = [
     { id: 1, title: 'Learn Angular ', status: 'todo', priority: 'high' },
@@ -61,5 +70,8 @@ export class TasksList {
 
   nextStatus(task: ITaskList) {
     task.status = task.status === 'todo' ? 'doing' : task.status === 'doing' ? 'done' : 'todo';
+  }
+  toggleHeader() {
+    this.isDarkHeader = !this.isDarkHeader;
   }
 }
