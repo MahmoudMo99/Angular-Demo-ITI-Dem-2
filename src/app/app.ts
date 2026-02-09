@@ -2,10 +2,14 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Home } from './components/home/home';
 import { TasksList } from './pages/tasks-list/tasks-list';
+import { Main } from './pages/main/main';
+import { About } from './pages/about/about';
+import { Nav } from './components/nav/nav';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, TasksList],
+  imports: [FormsModule, Nav, RouterModule],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

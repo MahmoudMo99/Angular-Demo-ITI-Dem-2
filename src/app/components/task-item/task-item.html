@@ -1,6 +1,9 @@
 <div
   appHighlight
-  class="card shadow-sm task-card"
+  appHoverCard
+  [hoverScale]="1.05"
+  [hoverShadow]="'10px 5px 2px gray'"
+  class="card task-card"
   [class.border-success]="task.status === 'done'"
   [class.border-primary]="task.status === 'doing'"
   [class.border-secondary]="task.status === 'todo'"
@@ -73,6 +76,8 @@
       <div class="d-flex gap-2 flex-shrink-0">
         <button class="btn btn-outline-primary btn-sm" (click)="nextStatus()">Next Status</button>
         <button class="btn btn-outline-danger btn-sm" (click)="deleteTask()">Delete</button>
+
+        <a class="btn btn-outline-dark btn-sm" [routerLink]="['/tasks', task.id]">View Details</a>
       </div>
     </div>
   </div>
