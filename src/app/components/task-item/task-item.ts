@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TruncatePipe } from '../pipes/truncate-pipe';
 import { Highlight } from '../../directives/highlight';
 import { HoverCard } from '../../directives/hover-card';
-import { RouterLink } from "@angular/router";
+import { RouterLink } from '@angular/router';
 
 type TaskStatus = 'todo' | 'doing' | 'done';
 type TaskPriority = 'low' | 'medium' | 'high';

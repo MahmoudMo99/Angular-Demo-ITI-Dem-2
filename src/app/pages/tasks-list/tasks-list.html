@@ -45,7 +45,7 @@
           />
         </div>
 
-        <div class="col-12 col-md-5">
+        <!-- <div class="col-12 col-md-5">
           <label class="form-label fw-semibold">Filter</label>
           <select class="form-select" [(ngModel)]="selectedStatus">
             <option value="all">All</option>
@@ -53,16 +53,16 @@
             <option value="doing">Doing</option>
             <option value="done">Done</option>
           </select>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
 
-  @if (filterTasks.length === 0) {
+  @if (filteredTasks.length === 0) {
     <div class="text-center text-secondary py-4">No Tasks match this filter</div>
   } @else {
     <div class="row g-3">
-      @for (item of filterTasks; track item.id) {
+      @for (item of filteredTasks; track item.id) {
         <div class="col-12">
           <app-task-item
             [task]="item"

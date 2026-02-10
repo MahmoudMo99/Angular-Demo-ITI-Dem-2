@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Task } from '../../services/task';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 type TaskStatus = 'todo' | 'doing' | 'done';
@@ -16,20 +16,29 @@ interface ITaskList {
   templateUrl: './task-details.html',
   styleUrl: './task-details.css',
 })
-export class TaskDetails {
+export class TaskDetails implements OnInit, OnDestroy {
   task: ITaskList | null = null;
+
+  private timerId: any;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private taskService: Task,
-  ) {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    console.log(id);
-    console.log(typeof id);
+  ) {}
 
+  ngOnInit(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
     this.task = this.taskService.getTaskById(id);
-    console.log(this.task);
+
+    this.timerId = setInterval(() => {
+      console.log('Task Details is still running');
+    }, 500);
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.timerId);
+    console.log('Task Details stopped');
   }
 
   back() {

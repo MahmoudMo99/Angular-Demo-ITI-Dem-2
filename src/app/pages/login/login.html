@@ -1,0 +1,47 @@
+<section class="container">
+  <div class="login-container">
+    <div class="circle circle-one"></div>
+    <div class="form-container">
+      <h1 class="opacity">LOGIN</h1>
+
+      <!-- template variable -->
+
+      <!-- Angular FormGroup -->
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+        <!-- Angular FormControl -->
+        <!-- [(ngModel)] - exports as ngModel -->
+
+        <input
+          class="form-control"
+          type="email"
+          placeholder="USERNAME"
+          name="email"
+          ngModel
+          #emailCtrl="ngModel"
+          required
+          email
+          pattern="^([\w]*[\w\.]*(?!\.)@gmail.com)"
+          [class.is-invalid]="emailCtrl.invalid && emailCtrl.touched"
+          [class.is-valid]="emailCtrl.valid && emailCtrl.touched"
+        />
+
+        @if (emailCtrl.invalid && emailCtrl.touched) {
+          <div class="text-danger">Email is required and must be valid</div>
+        } @else {
+          <div class="text-success">Email is Valid</div>
+        }
+
+        <input
+          class="form-control"
+          type="password"
+          placeholder="PASSWORD"
+          name="password"
+          ngModel
+          #passwordCtrl="ngModel"
+        />
+
+        <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">SUBMIT</button>
+      </form>
+    </div>
+  </div>
+</section>

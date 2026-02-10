@@ -1,0 +1,38 @@
+<section class="container">
+  <div class="login-container">
+    <div class="circle circle-one"></div>
+    <div class="form-container">
+      <h1 class="opacity">Register</h1>
+
+      <form [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+        <input
+          class="form-control"
+          type="text"
+          placeholder="USERNAME"
+          formControlName="email"
+          [class.is-invalid]="
+            formRegister.get('email')?.invalid && formRegister.get('email')?.touched
+          "
+          [class.is-valid]="formRegister.get('email')?.valid && formRegister.get('email')?.touched"
+        />
+
+        @if (formRegister.get('email')?.invalid && formRegister.get('email')?.touched) {
+          <div class="text-danger">Email is required and must be valid</div>
+        } @else {
+          <div class="text-success">Email is Valid</div>
+        }
+
+        <input
+          type="password"
+          placeholder="PASSWORD"
+          class="form-control"
+          formControlName="password"
+        />
+
+        <button type="submit" class="btn btn-primary" [disabled]="formRegister.invalid">
+          SUBMIT
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
