@@ -1,0 +1,35 @@
+<h3>Posts Integration with API</h3>
+
+<div class="mb-3">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Enter Post Title"
+    [(ngModel)]="newPost.title"
+  />
+
+  <textarea
+    class="form-control mt-3"
+    placeholder="Enter Post body"
+    [(ngModel)]="newPost.body"
+  ></textarea>
+
+  <button class="btn btn-success mt-3" (click)="addPost()">Add Post</button>
+</div>
+
+<div class="row">
+  @for (post of posts; let i = $index; track post.id) {
+    <div class="col-md-6 col-lg-4 col-12 g-3">
+      <div class="card h-100">
+        <p class="pt-3 ps-3 fs-4">No. {{ i + 1 }}</p>
+
+        <div class="card-body">
+          <h4 class="card-title text-success">{{ post.title }}</h4>
+          <p class="card-text">{{ post.body }}</p>
+        </div>
+
+        <button class="btn btn-danger" (click)="deletePost(post.id)">Delete</button>
+      </div>
+    </div>
+  }
+</div>

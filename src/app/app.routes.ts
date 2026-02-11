@@ -7,6 +7,9 @@ import { TaskDetails } from './pages/task-details/task-details';
 import { TasksPage } from './pages/tasks-page/tasks-page';
 import { Login } from './pages/login/login';
 import { Register } from './pages/register/register';
+import { Posts } from './components/posts/posts';
+import { LoginApi } from './pages/login-api/login-api';
+import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
   {
@@ -39,6 +42,16 @@ export const routes: Routes = [
   {
     path: 'register',
     component: Register,
+  },
+
+  {
+    path: 'login-api',
+    component: LoginApi,
+  },
+  {
+    path: 'posts',
+    component: Posts,
+    canActivate: [authGuard],
   },
   {
     path: '**',
